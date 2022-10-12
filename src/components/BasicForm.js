@@ -22,21 +22,25 @@ const BasicForm = () => {
           dispatch(pushTodo(values.todo));
         }}
       >
-        <Form>
-          {/* <label htmlFor="todo">Add ToDo </label> */}
-          {/* <Field id="todo" name="todo" placeholder="TextHere" /> */}
-          <TextField
-            fullWidth
-            id="todo"
-            name="todo"
-            label="Add ToDo"
-            type="text"
-            margin="normal"
-          />
-          <Button color="primary" variant="contained" fullWidth type="submit">
-            Submit
-          </Button>
-        </Form>
+        {props => (
+          <Form>
+            <label htmlFor="todo">Add ToDo </label>
+            {/* <Field id="todo" name="todo" placeholder="TextHere" /> */}
+            <TextField
+              fullWidth
+              id="todo"
+              name={"todo"}
+              label="Add ToDo"
+              type="text"
+              margin="normal"
+              onChange={props.handleChange}
+            />
+            <Button color="primary" variant="contained" fullWidth type="submit">
+              Submit
+            </Button>
+          </Form>
+        )}
+
       </Formik>
     </>
   );
